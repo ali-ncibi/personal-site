@@ -67,3 +67,161 @@ onMounted(() => {
     </footer>
   </div>
 </template>
+
+<style>
+.nuxt-content > :first-child {
+  margin-top: 0;
+}
+.nuxt-content h2 {
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+.nuxt-content h3 {
+  margin-top: 1.75rem;
+  margin-bottom: 0.5rem;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+.nuxt-content p {
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  line-height: 2rem;
+  color: #334155;
+}
+.dark .nuxt-content p {
+  color: #cbd5e1;
+}
+.nuxt-content strong {
+  font-weight: 700;
+}
+.nuxt-content a {
+  color: #1e3a8a;
+}
+.nuxt-content a:hover {
+  text-decoration: underline;
+}
+.dark .nuxt-content a {
+  color: #bfdbfe;
+}
+.nuxt-content ul,
+.nuxt-content ol {
+  margin-bottom: 1rem;
+  padding-left: 1.25rem;
+}
+.nuxt-content ul {
+  list-style: disc;
+}
+.nuxt-content ol {
+  list-style: decimal;
+}
+.nuxt-content li {
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  line-height: 2rem;
+  color: #334155;
+}
+.nuxt-content li::marker {
+  color: #1e3a8a;
+}
+.dark .nuxt-content li {
+  color: #cbd5e1;
+}
+.dark .nuxt-content li::marker {
+  color: #bfdbfe;
+}
+.nuxt-content pre {
+  margin: 1.25rem 0;
+  overflow-x: auto;
+  border-radius: 0.375rem;
+  border: 2px solid #0f172a;
+  background: #f8fafc;
+  padding: 1rem;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.875rem;
+  line-height: 1.75rem;
+  color: #0f172a;
+}
+.nuxt-content pre code {
+  background: transparent;
+  padding: 0;
+  font-size: inherit;
+}
+.dark .nuxt-content pre {
+  border-color: #334155;
+  background: #0f172a;
+  color: #f1f5f9;
+}
+.nuxt-content :not(pre) > code {
+  border-radius: 0.25rem;
+  background: #f1f5f9;
+  padding: 0.125rem 0.375rem;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.875em;
+}
+.dark .nuxt-content :not(pre) > code {
+  background: #1e293b;
+}
+.nuxt-content table {
+  margin: 1.5rem 0;
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+}
+.nuxt-content th,
+.nuxt-content td {
+  border: 2px solid #0f172a;
+  padding: 0.5rem 0.75rem;
+  text-align: left;
+  vertical-align: top;
+}
+.nuxt-content th {
+  background: #f8fafc;
+  font-weight: 700;
+}
+.dark .nuxt-content th,
+.dark .nuxt-content td {
+  border-color: #334155;
+}
+.dark .nuxt-content th {
+  background: #1e293b;
+}
+.nuxt-content figure {
+  margin: 1.5rem 0;
+}
+.nuxt-content figcaption {
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+  color: #475569;
+}
+.dark .nuxt-content figcaption {
+  color: #94a3b8;
+}
+.nuxt-content video {
+  width: 100%;
+  border-radius: 0.375rem;
+  border: 2px solid #0f172a;
+  background: #000;
+}
+.dark .nuxt-content video {
+  border-color: #334155;
+}
+.nuxt-content hr {
+  margin: 2rem 0;
+  border: 0;
+  border-top: 2px solid #0f172a;
+}
+.dark .nuxt-content hr {
+  border-top-color: #1e293b;
+}
+.nuxt-content img {
+  max-width: 100%;
+  border-radius: 0.375rem;
+}
+</style>

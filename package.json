@@ -14,8 +14,10 @@
     "typecheck": "nuxt typecheck"
   },
   "dependencies": {
+    "@nuxt/content": "^3.17.0",
     "@nuxt/fonts": "^1.2.0",
     "@nuxt/icon": "^2.6.2",
+    "better-sqlite3": "^13.2.0",
     "nuxt": "^4.6.4"
   },
   "devDependencies": {

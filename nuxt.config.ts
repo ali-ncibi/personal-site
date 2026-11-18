@@ -1,8 +1,6 @@
-import { posts } from './app/data/posts'
-
 export default defineNuxtConfig({
   compatibilityDate: '2026-11-17',
-  modules: ['@nuxt/fonts', '@nuxt/icon', '@nuxt/eslint', '@nuxtjs/tailwindcss'],
+  modules: ['@nuxt/content', '@nuxt/fonts', '@nuxt/icon', '@nuxt/eslint', '@nuxtjs/tailwindcss'],
   tailwindcss: {
     config: {
       darkMode: 'class',
@@ -41,7 +39,8 @@ export default defineNuxtConfig({
   nitro: {
     preset: 'github_pages',
     prerender: {
-      routes: posts.map((post) => `/blog/${post.slug}`),
+      crawlLinks: true,
+      routes: ['/blog'],
     },
   },
 })

@@ -1,19 +1,20 @@
 <script setup lang="ts">
 import { profile } from '~/data/profile'
-import { posts } from '~/data/posts'
 
-const latestNotes = posts.slice(0, 10)
-const noteCount = latestNotes.length
+const { data: latestNotes } = await useAsyncData('home-latest-notes', () =>
+  queryCollection('blog').order('date', 'DESC').limit(10).all(),
+)
+const noteCount = computed(() => latestNotes.value?.length ?? 0)
 const current = ref(0)
-const currentPost = computed(() => latestNotes[current.value])
+const currentPost = computed(() => latestNotes.value?.[current.value])
 const pageTitle = 'Ali Ncibi - Homepage'
 
 function nextNote() {
-  current.value = (current.value + 1) % noteCount
+  if (noteCount.value > 0) current.value = (current.value + 1) % noteCount.value
 }
 
 function previousNote() {
-  current.value = (current.value - 1 + noteCount) % noteCount
+  if (noteCount.value > 0) current.value = (current.value - 1 + noteCount.value) % noteCount.value
 }
 
 let touchStartX = 0
@@ -222,9 +223,9 @@ useHead({
       >
         <div class="min-w-0 flex-1" aria-live="polite" @touchstart.passive="onTouchStart" @touchend.passive="onTouchEnd">
           <article v-if="currentPost" role="group" aria-roledescription="slide" :aria-label="`${current + 1} of ${noteCount}`">
-            <p class="text-sm text-slate-500 dark:text-slate-400">{{ currentPost.date }} <span class="px-1">·</span> {{ currentPost.readTime }}</p>
-            <h3 class="my-2 text-xl font-bold tracking-tight"><NuxtLink class="hover:text-blue-900 dark:hover:text-blue-200" :to="`/blog/${currentPost.slug}`">{{ currentPost.title }}</NuxtLink></h3>
-            <p class="max-w-2xl text-sm leading-7 text-slate-600 dark:text-slate-300">{{ currentPost.excerpt }}</p>
+            <p class="text-sm text-slate-500 dark:text-slate-400">{{ formatPostDate(currentPost.date) }} <span class="px-1">·</span> {{ currentPost.readTime }}</p>
+            <h3 class="my-2 text-xl font-bold tracking-tight"><NuxtLink class="hover:text-blue-900 dark:hover:text-blue-200" :to="currentPost.path">{{ currentPost.title }}</NuxtLink></h3>
+            <p class="max-w-2xl text-sm leading-7 text-slate-600 dark:text-slate-300">{{ currentPost.summary }}</p>
           </article>
         </div>
         <div class="flex w-full items-center justify-between gap-4 md:w-auto md:flex-col md:items-end">

@@ -1,8 +1,11 @@
 <script setup lang="ts">
-import { posts } from '~/data/posts'
 import { profile } from '~/data/profile'
 
 const pageTitle = 'Ali Ncibi - Notes'
+
+const { data: posts } = await useAsyncData('blog-posts', () =>
+  queryCollection('blog').order('date', 'DESC').all(),
+)
 
 useSeoMeta({
   title: pageTitle,
@@ -41,13 +44,13 @@ useHead({
       <p class="mt-4 max-w-xl text-base leading-7 text-slate-600 dark:text-slate-300">Research notes, engineering lessons, and ideas I’m still thinking through.</p>
     </header>
     <div>
-      <article v-for="post in posts" :key="post.slug" class="flex items-start justify-between gap-5 border-t-2 border-slate-900 py-6 dark:border-slate-800">
+      <article v-for="post in posts ?? []" :key="post.path" class="flex items-start justify-between gap-5 border-t-2 border-slate-900 py-6 dark:border-slate-800">
         <div class="min-w-0">
-          <p class="text-sm text-slate-600 dark:text-slate-400">{{ post.date }} <span class="px-1">·</span> {{ post.category }} <span class="px-1">·</span> {{ post.readTime }}</p>
-          <h2 class="my-2 text-2xl font-bold tracking-tight sm:text-3xl"><NuxtLink class="hover:text-blue-900 dark:hover:text-blue-200" :to="`/blog/${post.slug}`">{{ post.title }}</NuxtLink></h2>
-          <p class="max-w-2xl text-sm leading-7 text-slate-600 dark:text-slate-300 sm:text-base">{{ post.excerpt }}</p>
+          <p class="text-sm text-slate-600 dark:text-slate-400">{{ formatPostDate(post.date) }} <span class="px-1">·</span> {{ post.category }} <span class="px-1">·</span> {{ post.readTime }}</p>
+          <h2 class="my-2 text-2xl font-bold tracking-tight sm:text-3xl"><NuxtLink class="hover:text-blue-900 dark:hover:text-blue-200" :to="post.path">{{ post.title }}</NuxtLink></h2>
+          <p class="max-w-2xl text-sm leading-7 text-slate-600 dark:text-slate-300 sm:text-base">{{ post.summary }}</p>
         </div>
-        <NuxtLink class="grid size-10 shrink-0 place-items-center rounded-md border-2 border-slate-900 bg-blue-900 text-white shadow-hard-sm hover:bg-blue-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700 dark:border-slate-700 dark:bg-blue-200 dark:text-slate-950 dark:hover:bg-blue-100 dark:shadow-hard-sm-dark" :to="`/blog/${post.slug}`" :aria-label="`Read ${post.title}`">
+        <NuxtLink class="grid size-10 shrink-0 place-items-center rounded-md border-2 border-slate-900 bg-blue-900 text-white shadow-hard-sm hover:bg-blue-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700 dark:border-slate-700 dark:bg-blue-200 dark:text-slate-950 dark:hover:bg-blue-100 dark:shadow-hard-sm-dark" :to="post.path" :aria-label="`Read ${post.title}`">
           <Icon name="lucide:arrow-up-right" class="size-5" aria-hidden="true" />
         </NuxtLink>
       </article>
