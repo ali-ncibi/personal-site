@@ -71,10 +71,10 @@ function repositoryFileUrl(path: string): string {
       >
       <div aria-hidden="true" class="absolute inset-0 bg-gradient-to-r from-slate-950/95 via-slate-950/80 to-slate-950/10" />
       <div aria-hidden="true" class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/35 to-transparent" />
-      <div class="pointer-events-none absolute inset-x-0 top-0 z-30 mx-auto w-full max-w-6xl px-5 pt-24">
+      <div class="pointer-events-none absolute inset-x-0 top-0 z-30 mx-auto w-full max-w-6xl px-5 pt-28">
         <NuxtLink class="pointer-events-auto inline-flex w-fit items-center gap-2 rounded-md border border-white/40 bg-slate-950/35 px-3 py-2 text-sm font-bold text-white backdrop-blur-sm hover:bg-slate-950/60 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white" to="/blog">← All notes</NuxtLink>
       </div>
-      <div class="relative mx-auto flex min-h-[620px] w-full max-w-6xl flex-col justify-end px-5 pb-12 pt-32 sm:min-h-[640px] sm:pb-14 sm:pt-36 lg:min-h-[680px]">
+      <div class="relative mx-auto flex min-h-[620px] w-full max-w-6xl flex-col justify-end px-5 pb-12 pt-48 sm:min-h-[640px] sm:pb-14 sm:pt-36 lg:min-h-[680px]">
         <p v-if="article.series" class="mb-4 text-sm font-bold text-blue-100">
           {{ article.series.title }} · Part {{ article.series.part }} of {{ article.series.total }}
         </p>

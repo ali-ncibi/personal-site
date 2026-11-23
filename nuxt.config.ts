@@ -35,7 +35,7 @@ export default defineNuxtConfig({
       link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
     },
   },
-  devtools: { enabled: false },
+  devtools: { enabled: true },
   nitro: {
     preset: 'github_pages',
     prerender: {

@@ -1,6 +1,6 @@
 export const profile = {
   name: 'Ali Ncibi',
-  role: 'AI Engineer · PhD in Computer Science / AI',
+  role: 'AI Engineer · PhD in Computer Science',
   siteUrl: 'https://alincibi.page',
   avatarUrl: '/images/avatar.png',
   cvUrl: '/files/Ali Ncibi — CV.pdf',
@@ -107,7 +107,7 @@ export const profile = {
   ],
   education: [
     {
-      degree: 'PhD in Computer Science / AI',
+      degree: 'PhD in Computer Science',
       institution: 'Université de Versailles–Saint-Quentin · Paris-Saclay',
       dates: '2022 – 2026',
       detail:

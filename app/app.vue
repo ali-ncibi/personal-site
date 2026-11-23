@@ -69,6 +69,14 @@ onMounted(() => {
 </template>
 
 <style>
+html,
+body {
+  overflow-x: clip;
+}
+.nuxt-content {
+  min-width: 0;
+  overflow-wrap: break-word;
+}
 .nuxt-content > :first-child {
   margin-top: 0;
 }
@@ -102,6 +110,7 @@ onMounted(() => {
 }
 .nuxt-content a {
   color: #1e3a8a;
+  overflow-wrap: anywhere;
 }
 .nuxt-content a:hover {
   text-decoration: underline;
@@ -163,12 +172,21 @@ onMounted(() => {
   padding: 0.125rem 0.375rem;
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   font-size: 0.875em;
+  overflow-wrap: anywhere;
 }
 .dark .nuxt-content :not(pre) > code {
   background: #1e293b;
 }
-.nuxt-content table {
+.nuxt-content .nuxt-content-table-scroll {
   margin: 1.5rem 0;
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.nuxt-content .nuxt-content-table-scroll > table {
+  margin: 0;
+}
+.nuxt-content table {
   width: 100%;
   border-collapse: collapse;
   font-size: 0.875rem;
@@ -180,6 +198,7 @@ onMounted(() => {
   padding: 0.5rem 0.75rem;
   text-align: left;
   vertical-align: top;
+  overflow-wrap: break-word;
 }
 .nuxt-content th {
   background: #f8fafc;
@@ -222,6 +241,7 @@ onMounted(() => {
 }
 .nuxt-content img {
   max-width: 100%;
+  height: auto;
   border-radius: 0.375rem;
 }
 </style>
